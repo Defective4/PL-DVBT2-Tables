@@ -87,6 +87,7 @@ public class Main {
                 fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
                 writer.println("# Emitel transmitters list  ");
                 writer.println("*Last updated: " + fmt.format(new Date()) + "*  \n");
+                writer.println("> This table is updated every Sunday, at 00:00 UTC");
                 writer.write(markdownTables);
             }
 
