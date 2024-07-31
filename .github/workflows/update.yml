@@ -1,0 +1,31 @@
+on:
+  schedule: [{cron: "0 0 * * 0"}]
+  workflow_dispatch:
+jobs:
+  update-tables:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup Java JDK
+      uses: actions/setup-java@v4.2.1
+      with:
+        java-version: 17
+        distribution: 'adopt'
+    - name: Checkout
+      uses: actions/checkout@v4.1.7
+    - name: Compile and run the project
+      run: mvn compile exec:java -pl emitel-downloader
+    - name: Commit to Emitel tables repo
+      run: |
+          git clone https://defective4:${{ secrets.EMITEL_TOKEN }}@github.com/Defective4/Emitel-Tables.git
+          rm -rf Emitel-Tables/Kaffeine
+          rm -rf Emitel-Tables/VLC
+          mv result/Kaffeine Emitel-Tables
+          mv result/VLC Emitel-Tables
+          mv result/table.md Emitel-Tables/README.md
+          cd Emitel-Tables
+          git add .
+          git config user.email "${{ secrets.EMITEL_EMAIL }}"
+          git config user.name "${{ secrets.EMITEL_NAME }}"
+          git commit -m "Update tables"
+          git push
+      
