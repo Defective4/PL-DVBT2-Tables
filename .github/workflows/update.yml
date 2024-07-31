@@ -26,6 +26,6 @@ jobs:
           git add .
           git config user.email "${{ secrets.EMITEL_EMAIL }}"
           git config user.name "${{ secrets.EMITEL_NAME }}"
-          git commit -m "Update tables"
-          git push
+          git commit -m "Update tables" || true
+          git push || true
       
