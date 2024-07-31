@@ -6,4 +6,4 @@ Dzięki temu projektowi możliwe jest oglądanie telewizji cyfrowej w programie 
 Ułatwia on także ręczne regulowanie odbiornika za pomocą pełnej tabeli częstotliwości.
 
 # Instalacja
-Instrukcje użycia znajdzie w repozytorium [Emitel-Tables](https://github.com/Defective4/Emitel-Tables/blob/master/INSTALL.pl.md).
+Instrukcje użycia znajdziesz w repozytorium [Emitel-Tables](https://github.com/Defective4/Emitel-Tables/blob/master/INSTALL.pl.md).
